@@ -1,1 +1,37 @@
-<h1>A particular user is here</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <%= render "partials/user", user: @user %>
+
+    <div class="bio">
+        <h3>Bio</h3>
+        <p><%=@user.bio%></p>
+    </div>
+
+
+    <% @posts.each do |post| %>
+    <%= link_to @id + '/posts', :remote => true do %>
+
+    <%= render "partials/post", post: post %>
+
+    <% end %>
+    <% end %>
+
+
+    <div class="btn">
+        <button type="button">See all posts</button>
+    </div>
+
+  </body>
+</html>
