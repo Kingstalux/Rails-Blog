@@ -7,4 +7,3 @@ class User < ApplicationRecord
     Post.where(user_id: id).limit(3)
   end
 end
-
