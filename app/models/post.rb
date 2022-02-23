@@ -7,6 +7,10 @@ class Post < ApplicationRecord
     Comment.where(post_id: id).limit(5)
   end
 
+  def self.all_comments(id)
+    Comment.where(post_id: id)
+  end
+
   def self.count_post(id)
     user = User.find(id)
     user.postsCounter = Post.where(user_id: id).count

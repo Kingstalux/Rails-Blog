@@ -1,1 +1,28 @@
-<h1>All posts for a user</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <%= render "partials/user", user: @user %>
+
+    <% @posts.each do |post| %>
+    <%= link_to 'posts/' + post.id.to_s, :remote => true do %>
+
+    <%= render "partials/post", post: post %>
+
+    <%= render "partials/comment", post: post %>
+
+    <% end %>
+    <% end %> 
+
+  </body>
+</html>

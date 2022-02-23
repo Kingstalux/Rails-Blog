@@ -1,1 +1,24 @@
-<h1>All users are here</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <% @users.each do |user| %>
+    <%= link_to user_path(user), :remote => true do %>
+
+    <%= render "partials/user", user: user %>
+    
+    <% end %>
+    <% end %>
+
+  </body>
+</html>

@@ -1,5 +1,11 @@
 class UsersController < ActionController::Base
-  def index; end
+  def index
+    @users = User.all
+  end
 
-  def show; end
+  def show
+    @id = params[:id]
+    @user = User.find(@id)
+    @posts = User.recent_post(@id)
+  end
 end

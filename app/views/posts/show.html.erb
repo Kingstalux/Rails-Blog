@@ -1,1 +1,33 @@
-<h1>Particular post for a user</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <div class="post-heading">
+        <div class="flex-post">
+            <p><strong><%=@post.title%></strong> by <strong><%=@user.name%></strong></p>
+            <div class="flex-comment">
+                <p>Comments:  <%=@post.commentsCounter%></p>
+                <p>Likes:  <%=@post.likesCounter%></p>
+            </div>
+        </div>
+        <p><%=@post.text%></p>
+    </div>
+
+    <div class="comments">
+        <%Post.all_comments(@post.id).each do |comment|%>
+        <p><strong><%=@user.name%>:</strong> <%=comment.text%></p>
+        <% end %>
+    </div>
+
+  </body>
+</html>
