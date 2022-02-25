@@ -8,4 +8,8 @@ class UsersController < ActionController::Base
     @user = User.find(@id)
     @posts = User.recent_post(@id)
   end
+
+  def new
+    @message = Message.new
+  end
 end

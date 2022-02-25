@@ -21,16 +21,20 @@
 
 
     <% @posts.each do |post| %>
-    <%= link_to @id + '/posts', :remote => true do %>
 
     <%= render "partials/post", post: post %>
 
     <% end %>
-    <% end %>
 
 
     <div class="btn">
-        <button type="button">See all posts</button>
+       <%= link_to @id + '/posts', :remote => true do %>
+        <input type="button" class="btn btn-secondary" value="See all posts">
+        <% end %>
+
+      <%= link_to @id + '/posts/new', :remote => true do %>
+        <input type="button" class="btn btn-secondary" value="Create a post">
+        <% end %>
     </div>
 
   </body>
