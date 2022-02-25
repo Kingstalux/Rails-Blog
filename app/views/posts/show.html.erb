@@ -29,5 +29,22 @@
         <% end %>
     </div>
 
+    <div class="space"></div>
+
+  <h2>Add a comment</h2>
+
+  <%= form_with model: @comment, url: user_post_comments_path(@user.id, @post.id) do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :text %>
+    <%= f.text_area :text, class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+  
+<% end %>
+
   </body>
 </html>

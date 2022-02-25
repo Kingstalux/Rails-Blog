@@ -11,5 +11,5 @@ class UsersController < ActionController::Base
 
   def new
     @message = Message.new
-    end
+  end
 end

@@ -8,6 +8,7 @@ class PostsController < ActionController::Base
   def show
     @post = Post.find(params[:id])
     @user = User.find(params[:user_id])
+    @comment = Comment.new
   end
 
   def new
@@ -40,5 +41,4 @@ class PostsController < ActionController::Base
   def post_params
     params.require(:post).permit(:title, :text)
   end
-
 end
