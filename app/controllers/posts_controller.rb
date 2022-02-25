@@ -19,9 +19,12 @@ class PostsController < ActionController::Base
   def create
     @user = User.find(params[:user_id])
     add_post = @user.posts.new(post_params)
+    add_post.commentsCounter = 0
+    add_post.likesCounter = 0
     respond_to do |format|
       format.html do
         if add_post.save
+          Post.count_post(params[:user_id])
           flash[:success] = 'Post created successfully'
           redirect_to user_posts_url
         else
