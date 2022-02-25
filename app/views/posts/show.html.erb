@@ -46,5 +46,17 @@
   
 <% end %>
 
+    <div class="space"></div>
+
+  <h2>Add a Like</h2>
+
+  <%= form_with model: @like, url: user_post_likes_path(@user.id, @post.id) do |f| %>
+
+  <div class="mb-3">
+    <%= f.submit  class: "btn btn-primary" %>
+  </div>
+  
+<% end %>
+
   </body>
 </html>
