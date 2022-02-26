@@ -25,4 +25,16 @@ RSpec.describe Post, type: :model do
     subject.likesCounter = -1
     expect(subject).to_not be_valid
   end
+
+  it 'return the recent comments for a post' do
+    expect(Post.recent_comments(subject.id).count).to eql 0
+  end
+
+  it 'return all the comments for a post' do
+    expect(Post.all_comments(subject.id).count).to eql 0
+  end
+
+  it 'count all posts for a user' do
+    expect(Post.count_post(subject.user_id).count).to eql 0
+  end
 end
