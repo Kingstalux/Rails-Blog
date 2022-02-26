@@ -15,7 +15,7 @@
     <h1>Create a Post</h1>
 
   <%= form_with model: @post, url: user_posts_path do |f| %>
-
+  
   <div class="mb-3">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control"%>
