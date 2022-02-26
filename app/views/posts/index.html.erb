@@ -14,7 +14,7 @@
 
     <%= render "partials/user", user: @user %>
 
-    <% @posts.each do |post| %>
+    <% @posts.includes(:comments).each do |post| %>
     <%= link_to 'posts/' + post.id.to_s, :remote => true do %>
 
     <%= render "partials/post", post: post %>
