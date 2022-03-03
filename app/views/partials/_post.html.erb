@@ -5,5 +5,6 @@
         <div class="spam">
             <p>Comments:  <%=post.commentsCounter%></p>
             <p>Likes:  <%=post.likesCounter%></p>
-        </div>
+            </div>
+            <%= button_to "Delete", user_post_path(@user.id, post.id), :method => :delete %>
     </div>
