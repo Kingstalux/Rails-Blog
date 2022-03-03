@@ -26,6 +26,7 @@
     <div class="comments">
         <%Post.all_comments(@post.id).each do |comment|%>
         <p><strong><%=@user.name%>:</strong> <%=comment.text%></p>
+        <%= button_to "Delete", user_post_comment_path(@user.id, @post.id, comment.id), :method => :delete %>
         <% end %>
     </div>
 
@@ -56,7 +57,7 @@
     <%= f.submit  class: "btn btn-primary" %>
   </div>
   
-<% end %>
+  <% end %>
 
   </body>
 </html>

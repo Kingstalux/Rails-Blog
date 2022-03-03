@@ -13,6 +13,16 @@ class CommentsController < ActionController::Base
     end
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @post.commentsCounter -= 1
+    @post.save
+    redirect_to("/users/#{current_user.id}/posts/#{@post.id}")
+    flash[:success] = 'Comment was deleted!'
+  end
+
   private
 
   def comment_params
