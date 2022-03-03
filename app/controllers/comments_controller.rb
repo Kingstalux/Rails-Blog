@@ -1,4 +1,6 @@
 class CommentsController < ActionController::Base
+  load_and_authorize_resource
+  before_action :authenticate_user!
   def create
     post = Post.find(params[:post_id])
     user = User.find(params[:user_id])
@@ -11,6 +13,16 @@ class CommentsController < ActionController::Base
       flash.now[:error] = 'Comment could not be added'
       render user_post_path
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @post.commentsCounter -= 1
+    @post.save
+    redirect_to("/users/#{current_user.id}/posts/#{@post.id}")
+    flash[:success] = 'Comment was deleted!'
   end
 
   private

@@ -5,6 +5,8 @@ ruby '2.7.5'
 
 gem 'devise'
 
+gem 'cancancan'
+
 gem 'ffi'
 
 gem 'bootstrap', '~> 5.1.3'
