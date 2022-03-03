@@ -22,7 +22,10 @@
 
     <%= render "partials/comment", post: post %>
     
+
+    <% if can? :manage, post %>
     <%= button_to "Delete", user_post_path(@user.id, post.id), :method => :delete %>
+    <% end %>
 
     <% end %>
 

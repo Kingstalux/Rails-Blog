@@ -1,4 +1,6 @@
 class CommentsController < ActionController::Base
+  load_and_authorize_resource
+  before_action :authenticate_user!
   def create
     post = Post.find(params[:post_id])
     user = User.find(params[:user_id])

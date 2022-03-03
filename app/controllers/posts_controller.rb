@@ -1,4 +1,6 @@
 class PostsController < ActionController::Base
+  load_and_authorize_resource
+  before_action :authenticate_user!
   def index
     @id = params[:user_id]
     @user = User.find(@id)
