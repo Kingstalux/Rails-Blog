@@ -28,7 +28,7 @@
         <p><strong><%=@user.name%>:</strong> <%=comment.text%></p>
         
         <% if can? :manage, comment %>
-        <%= button_to "Delete", user_post_comment_path(@user.id, @post.id, comment.id), :method => :delete %>
+        <%= button_to "Delete", user_post_comment_path(@user.id, @post.id, comment.id), :method => :delete, class: "btn btn-primary"%>
         <% end %>
 
         <% end %>
