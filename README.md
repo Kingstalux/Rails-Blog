@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Rails Blog App
-This is a blog application that can have users write and post blogs, read blog posts, and edit or delete the posts.
+This is a blog application that can have users write and post blogs, read blog posts, and edit or delete the posts. Added swag using api doc
 
 
 
