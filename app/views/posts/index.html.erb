@@ -24,7 +24,7 @@
     
 
     <% if can? :manage, post %>
-    <%= button_to "Delete", user_post_path(@user.id, post.id), :method => :delete %>
+    <%= button_to "Delete", user_post_path(@user.id, post.id), :method => :delete, class: "btn btn-primary" %>
     <% end %>
 
     <% end %>
