@@ -21,9 +21,9 @@
 
 
     <% @posts.each do |post| %>
-
+    <%= link_to  @id + '/posts/' + post.id.to_s, :remote => true do %>
     <%= render "partials/post", post: post %>
-
+    <% end %>
     <% end %>
 
 
