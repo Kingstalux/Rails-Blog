@@ -13,8 +13,7 @@ RSpec.describe 'Login features', js: true do
     fill_in('Email', with: '')
     fill_in('Password', with: '')
     click_button('Log in')
-    expect(response.status).to eq 401
-    # expect(page).to have_content('Invalid Email or password.')
+    expect(page).to have_content('Invalid Email or password.')
   end
 
   it 'Get error when I click the submit button after filling in the username and the password with incorrect data' do
@@ -22,8 +21,7 @@ RSpec.describe 'Login features', js: true do
     fill_in('Email', with: 'melodie@mail.com')
     fill_in('Password', with: 'qwertyasdf')
     click_button('Log in')
-    expect(response.response_code).to eq 401
-    # expect(page).to have_content('Invalid Email or password.')
+    expect(page).to have_content('Invalid Email or password.')
   end
 
   it 'Should redirected to the root page when clicking submit button with correct data' do
