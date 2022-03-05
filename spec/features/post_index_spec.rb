@@ -5,15 +5,18 @@ RSpec.describe 'Post Index', type: :feature do
     before(:each) do
       @photo = ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Fo_qCaRXIMyjygMR8Ux-7RC23aLnjstwCg&usqp=CAU'
       @user1 = User.create! name: 'tochi', photo: @photo, password: '123456789', email: 'yt@yahoo.com',
-                              bio: 'test bio ', confirmed_at: Time.now
+                            bio: 'test bio ', confirmed_at: Time.now
       visit new_user_session_path
       fill_in 'Email', with: 'yt@yahoo.com'
       fill_in 'Password', with: '123456789'
       click_button 'Log in'
 
-      @post1 = Post.create!(author: @user1, title: 'test title 1', text: 'test text 1', likesCounter: '0', commentsCounter: '0')
-      @post2 = Post.create!(author: @user1, title: 'test title 2', text: 'test text 2', likesCounter: '0', commentsCounter: '0')
-      @post3 = Post.create!(author: @user1, title: 'test title 3', text: 'test text 3', likesCounter: '0', commentsCounter: '0')
+      @post1 = Post.create!(author: @user1, title: 'test title 1', text: 'test text 1', likesCounter: '0',
+                            commentsCounter: '0')
+      @post2 = Post.create!(author: @user1, title: 'test title 2', text: 'test text 2', likesCounter: '0',
+                            commentsCounter: '0')
+      @post3 = Post.create!(author: @user1, title: 'test title 3', text: 'test text 3', likesCounter: '0',
+                            commentsCounter: '0')
 
       @comment1 = Comment.create!(post: @post1, author: @user1, text: 'test comment 1')
       @comment2 = Comment.create!(post: @post1, author: @user1, text: 'test comment 2')
@@ -61,7 +64,7 @@ RSpec.describe 'Post Index', type: :feature do
     end
 
     it 'When I click on a post, it redirects me to the show page for the post.' do
-      click_link "test title 1"
+      click_link 'test title 1'
       expect(page).to have_current_path user_post_path(@user1.id, @post1.id)
     end
   end

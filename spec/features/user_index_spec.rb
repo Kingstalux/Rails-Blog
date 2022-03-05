@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User Index', type: :feature do
   describe 'User' do
     before(:each) do
-        @photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTg61zz6r__kTdG1UItyiCmWNGc2KYeoiPIQ&usqp=CAU'
+      @photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTg61zz6r__kTdG1UItyiCmWNGc2KYeoiPIQ&usqp=CAU'
       @user1 = User.create! name: 'tochi', photo: @photo, password: '123456789', email: 'yt@yahoo.com',
                             confirmed_at: Time.now
       @user2 = User.create! name: 'other user', photo: @photo, password: '1234567', email: 'yt2@yahoo.com',

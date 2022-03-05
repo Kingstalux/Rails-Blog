@@ -11,9 +11,12 @@ RSpec.describe 'User Show', type: :feature do
       fill_in 'Password', with: '123456789'
       click_button 'Log in'
 
-      @post1 = Post.create!(author: @user1, title: 'test title 1', text: 'test text 1', likesCounter: '0', commentsCounter: '0')
-      @post2 = Post.create!(author: @user1, title: 'test title 2', text: 'test text 2', likesCounter: '0', commentsCounter: '0')
-      @post3 = Post.create!(author: @user1, title: 'test title 3', text: 'test text 3', likesCounter: '0', commentsCounter: '0')
+      @post1 = Post.create!(author: @user1, title: 'test title 1', text: 'test text 1', likesCounter: '0',
+                            commentsCounter: '0')
+      @post2 = Post.create!(author: @user1, title: 'test title 2', text: 'test text 2', likesCounter: '0',
+                            commentsCounter: '0')
+      @post3 = Post.create!(author: @user1, title: 'test title 3', text: 'test text 3', likesCounter: '0',
+                            commentsCounter: '0')
       click_on 'tochi'
     end
 
@@ -46,7 +49,7 @@ RSpec.describe 'User Show', type: :feature do
     end
 
     it 'When I click to see all posts, it redirects me to the user\'s post\'s show page.' do
-      click_link "test title 1"
+      click_link 'test title 1'
       expect(page).to have_current_path user_post_path(@user1, @post1)
     end
 
